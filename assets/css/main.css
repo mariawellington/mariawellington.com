@@ -10,6 +10,20 @@
   --line: #ecdff2;
   --shadow-soft: 0 14px 34px rgba(74, 51, 113, 0.12);
   --hero-image: url("../images/hero-canoe.png");
+  /* washi-tape style accents (used on cards, hero aside, timeline) */
+  --tape-sun: linear-gradient(90deg, rgba(255, 230, 160, 0.9), rgba(255, 195, 170, 0.88));
+  --tape-sky: linear-gradient(90deg, rgba(155, 210, 245, 0.88), rgba(198, 178, 255, 0.87));
+  --tape-mint: linear-gradient(90deg, rgba(165, 235, 205, 0.88), rgba(200, 215, 255, 0.86));
+  --tape-petal: linear-gradient(90deg, rgba(255, 195, 215, 0.9), rgba(255, 225, 185, 0.86));
+  /* torn paper lift — a bit stronger so it reads on light section backgrounds; filter follows clip-path */
+  --paper-raise:
+    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7)) drop-shadow(0 2px 5px rgba(32, 22, 48, 0.1))
+    drop-shadow(0 6px 16px rgba(48, 38, 70, 0.12)) drop-shadow(0 12px 28px rgba(58, 46, 86, 0.14))
+    drop-shadow(0 20px 46px rgba(74, 51, 113, 0.13));
+  --paper-raise-hover:
+    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7)) drop-shadow(0 3px 8px rgba(32, 22, 48, 0.12))
+    drop-shadow(0 8px 22px rgba(48, 38, 70, 0.14)) drop-shadow(0 16px 36px rgba(58, 46, 86, 0.16))
+    drop-shadow(0 24px 52px rgba(74, 51, 113, 0.15));
 }
 
 * {
@@ -219,27 +233,32 @@ h1 {
 }
 
 .hero-card {
-  background: linear-gradient(145deg, rgba(255, 253, 251, 0.92), rgba(255, 247, 241, 0.86));
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 20px;
-  box-shadow: var(--shadow-soft);
+  background: linear-gradient(150deg, #fffdfb 0%, #faf3eb 100%);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  filter: var(--paper-raise);
   padding: 1.15rem 1.1rem;
   position: relative;
   transform: rotate(-0.6deg);
+  -webkit-clip-path: url(#tear-b);
+  clip-path: url(#tear-b);
 }
 
-/* Tape accents only (no floral / SVG doodles) */
+/* Tape accents: sitting on the paper (inside the tear) */
 .hero-card::before {
   content: "";
   position: absolute;
   width: 58px;
   height: 15px;
-  right: 0.75rem;
-  top: -0.4rem;
+  right: 0.7rem;
+  top: 0.5rem;
+  z-index: 2;
   border-radius: 3px;
-  background: linear-gradient(90deg, rgba(255, 233, 169, 0.88), rgba(255, 214, 191, 0.88));
+  background: var(--tape-sun);
   opacity: 0.92;
   transform: rotate(5deg);
+  pointer-events: none;
 }
 
 .hero-card::after {
@@ -247,12 +266,19 @@ h1 {
   position: absolute;
   width: 64px;
   height: 16px;
-  left: 0.75rem;
-  top: -0.42rem;
+  left: 0.7rem;
+  top: 0.48rem;
+  z-index: 2;
   border-radius: 3px;
-  background: linear-gradient(90deg, rgba(187, 225, 243, 0.8), rgba(206, 191, 255, 0.82));
+  background: var(--tape-sky);
   opacity: 0.9;
   transform: rotate(-5deg);
+  pointer-events: none;
+}
+
+.hero-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-card-title {
@@ -294,18 +320,49 @@ h2 {
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
-.card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 1.1rem;
-  transition: transform 220ms ease, border-color 220ms ease;
+/* Wrapper: tape + drop-shadow live here. Filter on the shell (not the clipped .card) so shadows render around the torn shape. */
+.card-shell {
   position: relative;
+  z-index: 0;
+  width: 100%;
+  min-width: 0;
+  -webkit-filter: var(--paper-raise);
+  filter: var(--paper-raise);
+  transition:
+    transform 220ms ease,
+    -webkit-filter 220ms ease,
+    filter 220ms ease;
 }
 
-.card:hover {
+.card-shell:hover {
+  -webkit-filter: var(--paper-raise-hover);
+  filter: var(--paper-raise-hover);
   transform: translateY(-2px);
-  border-color: rgba(130, 99, 196, 0.55);
+}
+
+.card {
+  --tear: url(#tear-a);
+  position: relative;
+  z-index: 0;
+  background: linear-gradient(160deg, #fffcfa 0%, #faf4ec 50%, #f2e9e1 100%);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.25rem 1.2rem 1.2rem;
+  -webkit-clip-path: var(--tear);
+  clip-path: var(--tear);
+}
+
+.grid > .card-shell:nth-child(3n + 1) .card {
+  --tear: url(#tear-a);
+}
+
+.grid > .card-shell:nth-child(3n + 2) .card {
+  --tear: url(#tear-b);
+}
+
+.grid > .card-shell:nth-child(3n + 3) .card {
+  --tear: url(#tear-c);
 }
 
 .card--clickable {
@@ -316,12 +373,24 @@ h2 {
   position: absolute;
   inset: 0;
   z-index: 5;
-  border-radius: inherit;
+  border-radius: 0;
+  -webkit-clip-path: inherit;
+  clip-path: inherit;
+}
+
+.card a[href]:not(.card-hit) {
+  position: relative;
+  z-index: 6;
 }
 
 .card-hit:focus-visible {
   outline: 2px solid #7c5ec7;
   outline-offset: 3px;
+}
+
+.card > *:not(.card-hit) {
+  position: relative;
+  z-index: 1;
 }
 
 .card-more {
@@ -331,17 +400,29 @@ h2 {
   color: #6b5a8a;
 }
 
-.card::before {
+/* washi on the shell: partly over section “board”, partly on the paper; not clipped by --tear */
+.card-shell::after {
   content: "";
   position: absolute;
-  top: -0.42rem;
-  right: 0.85rem;
-  width: 56px;
-  height: 14px;
+  top: -0.16rem;
+  right: 0.58rem;
+  width: 58px;
+  height: 15px;
+  z-index: 3;
   border-radius: 3px;
-  background: linear-gradient(90deg, rgba(255, 233, 169, 0.85), rgba(255, 214, 191, 0.85));
-  opacity: 0.86;
+  background: var(--tape-sun);
+  opacity: 0.95;
   transform: rotate(4deg);
+  pointer-events: none;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.grid > .card-shell:nth-child(3n + 2)::after {
+  background: var(--tape-sky);
+}
+
+.grid > .card-shell:nth-child(3n + 3)::after {
+  background: var(--tape-mint);
 }
 
 .card h3 {
@@ -474,24 +555,72 @@ h2 {
 }
 
 .timeline li {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 1.1rem;
-  position: relative;
+  list-style: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
 }
 
-.timeline li::before {
-  content: "";
-  position: absolute;
-  left: 0.9rem;
-  top: -0.38rem;
-  width: 52px;
-  height: 13px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, rgba(180, 235, 216, 0.82), rgba(207, 190, 255, 0.8));
-  opacity: 0.85;
+.timeline .card {
+  --tear: url(#tear-a);
+  position: relative;
+  z-index: 0;
+  margin: 0;
+  background: linear-gradient(160deg, #fffcfa 0%, #faf4ec 50%, #f2e9e1 100%);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.25rem 1.2rem 1.2rem;
+  -webkit-clip-path: var(--tear);
+  clip-path: var(--tear);
+}
+
+/* Honors: slightly subtler lift than wide grid cards */
+.timeline .card-shell:hover {
+  transform: translateY(-1px);
+}
+
+.timeline li:nth-child(3n + 1) .card {
+  --tear: url(#tear-a);
+}
+
+.timeline li:nth-child(3n + 2) .card {
+  --tear: url(#tear-b);
+}
+
+.timeline li:nth-child(3n + 3) .card {
+  --tear: url(#tear-c);
+}
+
+/* Honors: tape on the shell, top-left; straddles board + paper (not cut by the tear) */
+#awards .card-shell--honors::after {
+  top: -0.12rem;
+  right: auto;
+  left: 0.62rem;
+  width: 54px;
+  height: 14px;
   transform: rotate(-4deg);
+  background: var(--tape-sun);
+}
+
+#awards .timeline li:nth-child(3n + 2) .card-shell--honors::after {
+  background: var(--tape-sky);
+}
+
+#awards .timeline li:nth-child(3n + 3) .card-shell--honors::after {
+  background: var(--tape-petal);
+}
+
+#awards .card > strong {
+  display: block;
+  font-size: 1.15rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  margin: 0 0 0.25rem;
+}
+
+.timeline .card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .timeline span {
@@ -576,10 +705,10 @@ a:hover {
     opacity: 0.75;
   }
 
-  .card::before,
-  .timeline li::before {
-    width: 44px;
-    height: 11px;
+  .card-shell::after,
+  #awards .card-shell--honors::after {
+    width: 48px;
+    height: 12px;
   }
 }
 

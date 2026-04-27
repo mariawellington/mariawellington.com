@@ -3,11 +3,13 @@
     <h2>Academic Focus</h2>
     <div class="grid">
       {% for item in site.data.academics %}
-        <article class="card">
-          <h3>{{ item.title }}</h3>
-          <p class="card-meta">{{ item.period }}</p>
-          <p>{{ item.description }}</p>
-        </article>
+        <div class="card-shell">
+          <article class="card">
+            <h3>{{ item.title }}</h3>
+            <p class="card-meta">{{ item.period }}</p>
+            <p>{{ item.description }}</p>
+          </article>
+        </div>
       {% endfor %}
     </div>
   </div>

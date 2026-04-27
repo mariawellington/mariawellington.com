@@ -3,11 +3,13 @@
     <h2>Activities & Leadership</h2>
     <div class="grid">
       {% for activity in site.data.extracurriculars %}
-        <article class="card">
-          <h3>{{ activity.role }} · {{ activity.organization }}</h3>
-          <p class="card-meta">{{ activity.period }}</p>
-          <p>{{ activity.impact }}</p>
-        </article>
+        <div class="card-shell">
+          <article class="card">
+            <h3>{{ activity.role }} · {{ activity.organization }}</h3>
+            <p class="card-meta">{{ activity.period }}</p>
+            <p>{{ activity.impact }}</p>
+          </article>
+        </div>
       {% endfor %}
     </div>
   </div>

@@ -4,9 +4,13 @@
     <ul class="timeline">
       {% for award in site.data.awards %}
         <li>
-          <strong>{{ award.year }} - {{ award.title }}</strong>
-          <span>{{ award.issuer }}</span>
-          <p>{{ award.context }}</p>
+          <div class="card-shell card-shell--honors">
+            <article class="card">
+              <strong>{{ award.year }} - {{ award.title }}</strong>
+              <span>{{ award.issuer }}</span>
+              <p>{{ award.context }}</p>
+            </article>
+          </div>
         </li>
       {% endfor %}
     </ul>

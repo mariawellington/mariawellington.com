@@ -3,46 +3,48 @@
     <h2>Highlights</h2>
     <div class="grid">
       {% for highlight in site.data.highlights %}
-        <article class="card{% if highlight.image or highlight.poster_pdf %} card--with-map{% endif %}{% if highlight.detail_url %} card--clickable{% endif %}">
-          {% if highlight.detail_url %}
-            <a
-              class="card-hit"
-              href="{{ highlight.detail_url | relative_url }}"
-              aria-label="View details: {{ highlight.title | xml_escape }}"
-            ></a>
-          {% endif %}
-          <h3>{{ highlight.title }}</h3>
-          <p>{{ highlight.description }}</p>
-          {% if highlight.image %}
-            <figure class="highlight-map">
-              <img
-                src="{{ highlight.image | relative_url }}"
-                alt="{{ highlight.image_alt | default: highlight.title | xml_escape }}"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
-          {% endif %}
-          {% if highlight.poster_pdf %}
-            <figure class="highlight-map highlight-map--embed">
-              <div class="highlight-map-frame highlight-map-frame--poster">
-                <iframe
-                  src="{{ highlight.poster_pdf | relative_url }}#toolbar=0"
-                  title="{{ highlight.title | xml_escape }} poster"
+        <div class="card-shell">
+          <article class="card{% if highlight.image or highlight.poster_pdf %} card--with-map{% endif %}{% if highlight.detail_url %} card--clickable{% endif %}">
+            {% if highlight.detail_url %}
+              <a
+                class="card-hit"
+                href="{{ highlight.detail_url | relative_url }}"
+                aria-label="View details: {{ highlight.title | xml_escape }}"
+              ></a>
+            {% endif %}
+            <h3>{{ highlight.title }}</h3>
+            <p>{{ highlight.description }}</p>
+            {% if highlight.image %}
+              <figure class="highlight-map">
+                <img
+                  src="{{ highlight.image | relative_url }}"
+                  alt="{{ highlight.image_alt | default: highlight.title | xml_escape }}"
                   loading="lazy"
-                ></iframe>
-              </div>
-              <figcaption class="highlight-map-caption">
-                <span class="highlight-map-external">
-                  <a href="{{ highlight.poster_pdf | relative_url }}" target="_blank" rel="noopener">Open poster (PDF)</a>
-                </span>
-              </figcaption>
-            </figure>
-          {% endif %}
-          {% if highlight.detail_url %}
-            <p class="card-more">View map &amp; details</p>
-          {% endif %}
-        </article>
+                  decoding="async"
+                />
+              </figure>
+            {% endif %}
+            {% if highlight.poster_pdf %}
+              <figure class="highlight-map highlight-map--embed">
+                <div class="highlight-map-frame highlight-map-frame--poster">
+                  <iframe
+                    src="{{ highlight.poster_pdf | relative_url }}#toolbar=0"
+                    title="{{ highlight.title | xml_escape }} poster"
+                    loading="lazy"
+                  ></iframe>
+                </div>
+                <figcaption class="highlight-map-caption">
+                  <span class="highlight-map-external">
+                    <a href="{{ highlight.poster_pdf | relative_url }}" target="_blank" rel="noopener">Open poster (PDF)</a>
+                  </span>
+                </figcaption>
+              </figure>
+            {% endif %}
+            {% if highlight.detail_url %}
+              <p class="card-more">View map &amp; details</p>
+            {% endif %}
+          </article>
+        </div>
       {% endfor %}
     </div>
   </div>
