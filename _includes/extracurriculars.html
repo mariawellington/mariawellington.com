@@ -1,9 +1,9 @@
-<section id="extracurriculars" class="section">
-  <div class="container">
+<section id="extracurriculars" class="wrapper alt">
+  <div class="inner">
     <h2>Activities & Leadership</h2>
-    <div class="grid">
+    <div class="items">
       {% for activity in site.data.extracurriculars %}
-        <article class="card">
+        <article class="item">
           <h3>{{ activity.role }} · {{ activity.organization }}</h3>
           <p class="card-meta">{{ activity.period }}</p>
           <p>{{ activity.impact }}</p>

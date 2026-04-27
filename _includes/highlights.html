@@ -1,9 +1,9 @@
-<section id="highlights" class="section">
-  <div class="container">
+<section id="highlights" class="wrapper alt">
+  <div class="inner">
     <h2>Highlights</h2>
-    <div class="grid">
+    <div class="items">
       {% for highlight in site.data.highlights %}
-        <article class="card">
+        <article class="item">
           <h3>{{ highlight.title }}</h3>
           <p>{{ highlight.description }}</p>
         </article>

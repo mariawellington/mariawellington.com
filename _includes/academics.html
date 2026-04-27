@@ -1,9 +1,9 @@
-<section id="academics" class="section section-alt">
-  <div class="container">
+<section id="academics" class="wrapper">
+  <div class="inner">
     <h2>Academic Focus</h2>
-    <div class="grid">
+    <div class="items">
       {% for item in site.data.academics %}
-        <article class="card">
+        <article class="item">
           <h3>{{ item.title }}</h3>
           <p class="card-meta">{{ item.period }}</p>
           <p>{{ item.description }}</p>
