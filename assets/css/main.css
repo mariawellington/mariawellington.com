@@ -10,6 +10,7 @@
   --line: #ecdff2;
   --shadow-soft: 0 14px 34px rgba(74, 51, 113, 0.12);
   --hero-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=80");
+  --zine-font: "Caveat", "Bradley Hand", "Marker Felt", cursive;
 }
 
 * {
@@ -127,6 +128,17 @@ h3 {
   color: var(--text);
   font-size: 1.2rem;
   font-weight: 700;
+  position: relative;
+}
+
+.brand::after {
+  content: "seattle";
+  font-family: var(--zine-font);
+  font-size: 1rem;
+  color: #7a67a7;
+  margin-left: 0.4rem;
+  position: relative;
+  top: -0.15rem;
 }
 
 .nav-links {
@@ -270,6 +282,9 @@ h1 {
   color: var(--text);
   border-color: #d9c6ea;
   box-shadow: none;
+  font-family: var(--zine-font);
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
 }
 
 .hero-card {
@@ -278,15 +293,31 @@ h1 {
   border-radius: 20px;
   box-shadow: var(--shadow-soft);
   padding: 1.15rem 1.1rem;
+  position: relative;
+  transform: rotate(-0.8deg);
+}
+
+.hero-card::before {
+  content: "Seattle '28";
+  position: absolute;
+  top: -0.72rem;
+  right: 0.7rem;
+  font-family: var(--zine-font);
+  font-size: 1rem;
+  color: #5e4f85;
+  background: rgba(255, 247, 178, 0.75);
+  padding: 0.1rem 0.45rem;
+  border-radius: 6px;
+  transform: rotate(3deg);
 }
 
 .hero-card-title {
   margin: 0;
   color: var(--muted);
   font-size: 0.86rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.03em;
   font-weight: 700;
+  font-family: var(--zine-font);
 }
 
 .hero-card-text {
@@ -323,6 +354,21 @@ section[id] {
 h2 {
   margin: 0 0 1rem;
   font-size: clamp(1.7rem, 3.8vw, 2.5rem);
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: -0.25rem;
+  bottom: -0.12rem;
+  height: 0.45rem;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(255, 214, 191, 0.55), rgba(199, 176, 255, 0.45));
+  transform: rotate(-0.6deg);
+  border-radius: 999px;
 }
 
 .grid {
