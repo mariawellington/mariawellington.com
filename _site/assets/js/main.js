@@ -15,21 +15,3 @@ if (toggle && navLinks) {
     });
   });
 }
-
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const accents = document.querySelectorAll("[data-float]");
-  accents.forEach((el, index) => {
-    el.animate(
-      [
-        { transform: "translateY(0px)" },
-        { transform: "translateY(-7px)" },
-        { transform: "translateY(0px)" }
-      ],
-      {
-        duration: 3800 + index * 600,
-        iterations: Infinity,
-        easing: "ease-in-out"
-      }
-    );
-  });
-}
