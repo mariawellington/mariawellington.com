@@ -9,7 +9,7 @@
   --mint: #93d8c9;
   --line: #ecdff2;
   --shadow-soft: 0 14px 34px rgba(74, 51, 113, 0.12);
-  --hero-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=80");
+  --hero-image: url("../images/hero-canoe.png");
 }
 
 * {
@@ -129,11 +129,11 @@ h3 {
   background:
     linear-gradient(
       112deg,
-      rgba(30, 27, 46, 0.62) 0%,
-      rgba(30, 27, 46, 0.46) 40%,
-      rgba(30, 27, 46, 0.35) 100%
+      rgba(30, 27, 46, 0.42) 0%,
+      rgba(30, 27, 46, 0.3) 40%,
+      rgba(30, 27, 46, 0.22) 100%
     ),
-    linear-gradient(180deg, rgba(248, 245, 242, 0.06), rgba(248, 245, 242, 0.2));
+    linear-gradient(180deg, rgba(248, 245, 242, 0.08), rgba(248, 245, 242, 0.14));
 }
 
 .hero .container {
@@ -308,6 +308,29 @@ h2 {
   border-color: rgba(130, 99, 196, 0.55);
 }
 
+.card--clickable {
+  cursor: pointer;
+}
+
+.card-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: inherit;
+}
+
+.card-hit:focus-visible {
+  outline: 2px solid #7c5ec7;
+  outline-offset: 3px;
+}
+
+.card-more {
+  margin: 0.85rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: #6b5a8a;
+}
+
 .card::before {
   content: "";
   position: absolute;
@@ -324,6 +347,116 @@ h2 {
 .card h3 {
   margin: 0;
   font-size: 1.35rem;
+}
+
+.card--with-map .highlight-map {
+  margin: 0.5rem 0 0.85rem;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+}
+
+.card--with-map .highlight-map img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.card--with-map .highlight-map--embed {
+  overflow: visible;
+  border: none;
+  background: transparent;
+}
+
+.highlight-map-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 340px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #e8edf1;
+}
+
+.highlight-map-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.highlight-map-frame--poster {
+  aspect-ratio: 2 / 3;
+  max-height: min(420px, 72vh);
+}
+
+.highlight-map-caption {
+  margin: 0.45rem 0 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.highlight-map-external {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+}
+
+.highlight-map-external a {
+  font-weight: 650;
+}
+
+.highlight-detail-page {
+  padding-top: 2rem;
+}
+
+.highlight-detail-inner {
+  width: min(100% - 2rem, 1180px);
+  margin-inline: auto;
+}
+
+.highlight-detail-back {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.highlight-detail-back a {
+  font-weight: 600;
+}
+
+.highlight-detail-title {
+  margin: 0 0 0.65rem;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+}
+
+.highlight-detail-intro {
+  margin: 0 0 1.75rem;
+  max-width: 65ch;
+  font-size: 1.05rem;
+}
+
+.highlight-map--full .highlight-map-frame {
+  max-height: none;
+  aspect-ratio: 16 / 10;
+  min-height: 400px;
+}
+
+@media (min-width: 768px) {
+  .highlight-map--full .highlight-map-frame {
+    min-height: 520px;
+  }
+}
+
+.highlight-detail-page .highlight-map--full {
+  margin: 0;
+}
+
+.highlight-detail-page .highlight-map--full .highlight-map-caption {
+  margin-top: 0.65rem;
 }
 
 .card-meta {

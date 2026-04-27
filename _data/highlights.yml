@@ -1,11 +1,12 @@
-- title: Research or Capstone Project
-  description: "Placeholder: Add a short project summary and key results."
-
 - title: Performing Arts - Little Shop of Horrors
+  poster_pdf: /assets/documents/little-shop-horrors-poster.pdf
   description: "Multiple parts of name , name, and name, combining creativity, discipline, and teamwork through rehearsals and live performances."
 
-- title: Camp Wabun Wilderness Canoe Tripping
-  description: "Spent four weeks canoeing throught Northern Ontario and Quebec, and down the Dumoine River in Quebec.  Learned how to navigate, read maps, work with people, in the wilderness"
-
-- title: Community Impact
-  description: "Placeholder: Add one concrete way she helped others."
+- title: Coulonge River Trip
+  slug: coulonge
+  image: /assets/images/coulonge-map-thumb.jpg
+  image_alt: "Preview of the Coulonge River trip route map (CalTopo)"
+  description: "Four weeks on trip with Camp Wabun on the Coulonge River in Quebec—building the skills it takes to live and work with people in the wild. It was hard and demanding, and also one of the most rewarding experiences I have had."
+  detail_url: /coulonge-river-trip/
+  map_url: https://caltopo.com/m/UD7F53M
+  map_caption: "Cayuga B — 2025 (Camp Wabun) · interactive route on CalTopo"
