@@ -8,30 +8,34 @@ permalink: /coulonge-river-trip/
 
 <section class="section highlight-detail-page">
   <div class="container highlight-detail-inner">
-    <p class="highlight-detail-back">
-      <a href="{{ '/' | relative_url }}#highlights">&larr; Back to highlights</a>
-    </p>
-    <h1 class="highlight-detail-title">{{ h.title }}</h1>
-    <p class="highlight-detail-intro">{{ h.description }}</p>
-
-    {% if h.map_url %}
-      <figure class="highlight-map highlight-map--embed highlight-map--full">
-        <div class="highlight-map-frame">
-          <iframe
-            title="{{ h.title | xml_escape }} — trip map"
-            src="{{ h.map_url }}"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-          ></iframe>
-        </div>
-        {% if h.map_caption %}
-          <figcaption class="highlight-map-caption">{{ h.map_caption }}</figcaption>
-        {% endif %}
-        <p class="highlight-map-external">
-          <a href="{{ h.map_url }}" target="_blank" rel="noopener noreferrer">Open map in CalTopo</a>
+    <div class="card-shell highlight-detail-paper-wrap">
+      <article class="card highlight-detail-paper">
+        <p class="highlight-detail-back">
+          <a href="{{ '/' | relative_url }}#highlights">&larr; Back to highlights</a>
         </p>
-      </figure>
-    {% endif %}
+        <h1 class="highlight-detail-title">{{ h.title }}</h1>
+        <p class="highlight-detail-intro">{{ h.description }}</p>
+
+        {% if h.map_url %}
+          <figure class="highlight-map highlight-map--embed highlight-map--full">
+            <div class="highlight-map-frame">
+              <iframe
+                title="{{ h.title | xml_escape }} — trip map"
+                src="{{ h.map_url }}"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+            </div>
+            {% if h.map_caption %}
+              <figcaption class="highlight-map-caption">{{ h.map_caption }}</figcaption>
+            {% endif %}
+            <p class="highlight-map-external">
+              <a href="{{ h.map_url }}" target="_blank" rel="noopener noreferrer">Open map in CalTopo</a>
+            </p>
+          </figure>
+        {% endif %}
+      </article>
+    </div>
   </div>
 </section>
