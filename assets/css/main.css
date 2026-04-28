@@ -20,10 +20,6 @@
     drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7)) drop-shadow(0 2px 5px rgba(32, 22, 48, 0.1))
     drop-shadow(0 6px 16px rgba(48, 38, 70, 0.12)) drop-shadow(0 12px 28px rgba(58, 46, 86, 0.14))
     drop-shadow(0 20px 46px rgba(74, 51, 113, 0.13));
-  --paper-raise-hover:
-    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7)) drop-shadow(0 3px 8px rgba(32, 22, 48, 0.12))
-    drop-shadow(0 8px 22px rgba(48, 38, 70, 0.14)) drop-shadow(0 16px 36px rgba(58, 46, 86, 0.16))
-    drop-shadow(0 24px 52px rgba(74, 51, 113, 0.15));
 }
 
 * {
@@ -238,7 +234,7 @@ h1 {
   border-radius: 0;
   box-shadow: none;
   filter: var(--paper-raise);
-  padding: 1.15rem 1.1rem;
+  padding: 1.4rem 1.35rem;
   position: relative;
   transform: rotate(-0.6deg);
   -webkit-clip-path: url(#tear-b);
@@ -328,16 +324,6 @@ h2 {
   min-width: 0;
   -webkit-filter: var(--paper-raise);
   filter: var(--paper-raise);
-  transition:
-    transform 220ms ease,
-    -webkit-filter 220ms ease,
-    filter 220ms ease;
-}
-
-.card-shell:hover {
-  -webkit-filter: var(--paper-raise-hover);
-  filter: var(--paper-raise-hover);
-  transform: translateY(-2px);
 }
 
 .card {
@@ -348,7 +334,7 @@ h2 {
   border: none;
   border-radius: 0;
   box-shadow: none;
-  padding: 1.25rem 1.2rem 1.2rem;
+  padding: 1.55rem 1.5rem 1.5rem;
   -webkit-clip-path: var(--tear);
   clip-path: var(--tear);
 }
@@ -594,14 +580,9 @@ h2 {
   border: none;
   border-radius: 0;
   box-shadow: none;
-  padding: 1.25rem 1.2rem 1.2rem;
+  padding: 1.55rem 1.5rem 1.5rem;
   -webkit-clip-path: var(--tear);
   clip-path: var(--tear);
-}
-
-/* Honors: slightly subtler lift than wide grid cards */
-.timeline .card-shell:hover {
-  transform: translateY(-1px);
 }
 
 .timeline li:nth-child(3n + 1) .card {
