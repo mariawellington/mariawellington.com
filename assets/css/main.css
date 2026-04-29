@@ -301,6 +301,39 @@ h1 {
   margin: 0.45rem 0 0;
 }
 
+/* Home placeholder: hero graphic only, no nav/footer */
+.placeholder-site main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.placeholder-site .hero {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(3.5rem, 12vh, 6rem);
+}
+
+.placeholder-site .hero .container {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.hero--placeholder .hero-inner {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 44rem;
+}
+
+.hero-placeholder-note {
+  margin: 1.35rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff8ff;
+  text-shadow: 0 1px 12px rgba(30, 27, 46, 0.35);
+}
+
 .section {
   padding: 3.2rem 0;
   position: relative;

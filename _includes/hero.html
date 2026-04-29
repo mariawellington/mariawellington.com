@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero{% if page.placeholder %} hero--placeholder{% endif %}">
   <div class="container hero-inner">
     <div class="hero-copy">
       <h1>Hi, I am Ri - a Seattle student, performer, and wilderness tripper.</h1>
@@ -9,10 +9,14 @@
         {{ site.data.profile.name }} · Class of {{ site.data.profile.class_year }} · Interested in
         {{ site.data.profile.intended_majors | join: ", " }}
       </p>
+      {% if page.placeholder %}
+      <p class="hero-placeholder-note">Full site coming soon.</p>
+      {% else %}
       <div class="cta-row">
         <a class="button" href="#contact">Say hi</a>
         <a class="button button-soft" href="#highlights">See what I am up to</a>
       </div>
+      {% endif %}
     </div>
     <!-- <aside class="hero-card">
       <p class="hero-card-title">Seattle Snapshot</p>
