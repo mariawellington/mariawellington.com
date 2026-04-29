@@ -7,4 +7,11 @@ markdown: kramdown
 theme: null
 permalink: pretty
 
+exclude:
+  - "*.nix"
+  - "README*"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "*.toml"
+
 collections: []
