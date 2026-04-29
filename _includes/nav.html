@@ -6,12 +6,12 @@
     </button>
     <ul id="nav-links" class="nav-links">
       <li><a href="{{ '/' | relative_url }}#about">About Me</a></li>
+      <li><a href="{{ '/' | relative_url }}#highlights">Favorite Highlights</a></li>
       <li><a href="{{ '/' | relative_url }}#academics">Academics</a></li>
       <li><a href="{{ '/' | relative_url }}#extracurriculars">Life Outside Class</a></li>
-      {% comment %}
+      {% if page.show_honors %}
       <li><a href="{{ '/' | relative_url }}#awards">Honors</a></li>
-      {% endcomment %}
-      <li><a href="{{ '/' | relative_url }}#highlights">Favorite Highlights</a></li>
+      {% endif %}
       <li><a href="{{ '/' | relative_url }}#contact">Say Hi</a></li>
     </ul>
   </nav>

@@ -1,12 +1,15 @@
 ---
 layout: default
 title: Home
+show_honors: true
 ---
 
 {% include hero.html %}
 {% include about.html %}
+{% include highlights.html %}
 {% include academics.html %}
 {% include extracurriculars.html %}
+{% if page.show_honors %}
 {% include awards.html %}
-{% include highlights.html %}
+{% endif %}
 {% include contact.html %}
