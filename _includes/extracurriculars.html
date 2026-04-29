@@ -4,7 +4,14 @@
     <div class="grid">
       {% for activity in site.data.extracurriculars %}
         <div class="card-shell">
-          <article class="card">
+          <article class="card{% if activity.detail_url %} card--clickable{% endif %}">
+            {% if activity.detail_url %}
+            <a
+              class="card-hit"
+              href="{{ activity.detail_url | relative_url }}"
+              aria-label="View acting resume: {{ activity.role | xml_escape }}, {{ activity.organization | xml_escape }}"
+            ></a>
+            {% endif %}
             <h3>{{ activity.role }} · {{ activity.organization }}</h3>
             <p class="card-meta">{{ activity.period }}</p>
             <p>{{ activity.impact }}</p>

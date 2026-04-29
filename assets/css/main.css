@@ -578,6 +578,33 @@ h2 {
   font-size: 1.35rem;
 }
 
+.resume-section-title {
+  margin: 1.75rem 0 0.55rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--text);
+}
+
+.resume-section-title:first-of-type {
+  margin-top: 1.15rem;
+}
+
+.resume-credits {
+  margin: 0;
+  padding-left: 1.15rem;
+  line-height: 1.55;
+}
+
+.resume-credits li {
+  margin: 0.35rem 0 0;
+}
+
+.resume-credits cite {
+  font-style: normal;
+  font-weight: 650;
+}
+
 .card--with-map .highlight-map {
   margin: 0.5rem 0 0.85rem;
   border-radius: 14px;
@@ -656,7 +683,7 @@ h2 {
   margin-inline: auto;
 }
 
-/* Coulonge (and future detail pages): same torn paper + washi as grid cards */
+/* Rivière Coulonge (and future detail pages): same torn paper + washi as grid cards */
 .highlight-detail-paper-wrap {
   margin-top: 0.35rem;
   overflow: visible;
@@ -707,6 +734,38 @@ h2 {
   margin: 0 0 1.75rem;
   max-width: 65ch;
   font-size: 1.05rem;
+}
+
+.highlight-detail-intro.outdoor-intro-follow {
+  margin-top: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.outdoor-highlights a,
+.outdoor-summers a {
+  font-weight: 650;
+}
+
+.outdoor-summer-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0.5rem 0 0;
+}
+
+.outdoor-summer-head {
+  font-size: 1.02rem;
+}
+
+.outdoor-summer-body {
+  display: block;
+  max-width: 65ch;
+  line-height: 1.55;
+}
+
+.outdoor-summer-link {
+  display: block;
+  margin-top: 0.15rem;
 }
 
 .highlight-map--full .highlight-map-frame {

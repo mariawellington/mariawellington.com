@@ -1,0 +1,43 @@
+---
+layout: default
+title: Outdoor experience
+permalink: /outdoor/
+---
+
+{% assign o = site.data.outdoor %}
+
+<section class="section highlight-detail-page">
+  <div class="container highlight-detail-inner">
+    <div class="card-shell highlight-detail-paper-wrap">
+      <article class="card highlight-detail-paper">
+        <p class="highlight-detail-back">
+          <a href="{{ '/' | relative_url }}#extracurriculars">&larr; Back to Activities &amp; Leadership</a>
+        </p>
+        <h1 class="highlight-detail-title">{{ o.heading }}</h1>
+
+        {% for paragraph in o.intro %}
+        <p class="highlight-detail-intro{% unless forloop.first %} outdoor-intro-follow{% endunless %}">{{ paragraph }}</p>
+        {% endfor %}
+
+        {% if o.summers %}
+        <h2 class="resume-section-title">Summers on trail</h2>
+        <ul class="resume-credits outdoor-summers">
+          {% for s in o.summers %}
+          <li class="outdoor-summer-item">
+            <span class="outdoor-summer-head">
+              <strong>{{ s.year }}</strong> — {{ s.weeks }} weeks
+            </span>
+            <span class="outdoor-summer-body">{{ s.summary }}</span>
+            {% if s.detail_url %}
+            <span class="outdoor-summer-link">
+              <a href="{{ s.detail_url | relative_url }}">{{ s.detail_label | default: "Details" }}</a>
+            </span>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </article>
+    </div>
+  </div>
+</section>

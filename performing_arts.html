@@ -1,0 +1,35 @@
+---
+layout: default
+title: Acting resume
+permalink: /performing-arts/
+---
+
+{% assign resume = site.data.acting_resume %}
+
+<section class="section highlight-detail-page">
+  <div class="container highlight-detail-inner">
+    <div class="card-shell highlight-detail-paper-wrap">
+      <article class="card highlight-detail-paper">
+        <p class="highlight-detail-back">
+          <a href="{{ '/' | relative_url }}#extracurriculars">&larr; Back to Activities &amp; Leadership</a>
+        </p>
+        <h1 class="highlight-detail-title">Acting resume</h1>
+        <p class="highlight-detail-intro">
+          {{ resume.intro.before_name }}{{ site.data.profile.name }}{{ resume.intro.after_name }}
+        </p>
+
+        {% for section in resume.sections %}
+        <h2 class="resume-section-title">{{ section.heading }}</h2>
+        <ul class="resume-credits">
+          {% for production in section.productions %}
+          <li>
+            <cite>{{ production.title }}</cite>
+            {% if production.season %} — {{ production.season }}{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endfor %}
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+# Acting resume — add sections or productions as needed. Order here is display order (top to bottom).
+intro:
+  before_name: "Selected stage credits — "
+  after_name: ", performer with Chief Sealth Drama Company and Youth Theatre Northwest."
+
+sections:
+  - heading: Chief Sealth Drama Company
+    productions:
+      - title: Little Shop of Horrors
+        season: Spring 2026
+
+  - heading: Bayfest Youth Theatre
+    productions:
+      - title: The Rake's Progress
+        season: Winter 2025
+
+  - heading: Youth Theatre Northwest
+    productions:
+      - title: The Wall and the Woods
+        season: Spring 2023
+      - title: Charlie and the Chocolate Factory
+        season: Spring 2022
+      - title: The Sky Below
+        season: Fall 2021

@@ -1,0 +1,31 @@
+# Outdoor / wilderness — summers on trail (edit summaries or add years as needed).
+heading: Wilderness canoe tripping
+intro:
+  - >
+    Since 2023, each summer has meant about six weeks in the canoe-tripping country of Northern
+    Ontario and Québec—long days on the water and portage trails, living out of packs, and
+    working closely with a small crew.
+  - >
+    Those seasons layered resilience, navigation, and backcountry judgment, and showed me how much
+    a group can accomplish when everyone pulls together.
+
+summers:
+  - year: 2023
+    weeks: 6
+    summary: >
+      First full summer on trip: building a base in paddling, portaging, camp routine, and
+      traveling safely as a team through remote lakes and rivers.
+
+  - year: 2024
+    weeks: 6
+    summary: >
+      A deeper season on longer routes—more confidence reading weather and water, tighter
+      navigation, and clearer communication when plans had to change.
+
+  - year: 2025
+    weeks: 6
+    summary: >
+      Six weeks that culminated in the expedition on the Rivière Coulonge in Québec—the capstone stretch
+      of that summer, with the full route and map captured in the site highlight below.
+    detail_url: /coulonge-river-trip/
+    detail_label: Rivière Coulonge — map & trip details
