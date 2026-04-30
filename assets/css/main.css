@@ -716,6 +716,11 @@ h2 {
     0 2px 6px rgba(45, 35, 60, 0.1);
 }
 
+/* Acting resume: lower tape slightly so it meets the torn paper edge */
+.acting-resume-page .highlight-detail-paper-wrap.card-shell::after {
+  top: calc(0.42rem + 9px);
+}
+
 .highlight-detail-back {
   margin: 0 0 1rem;
   font-size: 0.95rem;
@@ -982,6 +987,10 @@ a:hover {
     height: 14px;
     top: 0.36rem;
     right: 0.5rem;
+  }
+
+  .acting-resume-page .highlight-detail-paper-wrap.card-shell::after {
+    top: calc(0.36rem + 9px);
   }
 
   .highlight-detail-paper {
